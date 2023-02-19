@@ -1,4 +1,4 @@
-using Park.Models;
+using ParkApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<ParkApiContext>(
+builder.Services.AddDbContext<ParksApiContext>(
   dbContextOptions => dbContextOptions.UseMySql(
     builder.Configuration
     ["ConnectionStrings:DefaultConnection"],
