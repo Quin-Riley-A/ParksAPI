@@ -15,7 +15,6 @@ namespace ParkApi.Controllers.V1
       _db = db;
     }
 
-    // GET: api/parks
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get(string parkName, string parkState, string municipality)
     {
@@ -39,7 +38,6 @@ namespace ParkApi.Controllers.V1
       return await query.ToListAsync();
     }
 
-    // GET: api/Parks/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark (int id)
     {
@@ -52,7 +50,7 @@ namespace ParkApi.Controllers.V1
 
       return park;
     }
-    // Post api/parks
+
     [HttpPost]
     public async Task<ActionResult<Park>> Post (Park park)
     {
@@ -61,7 +59,6 @@ namespace ParkApi.Controllers.V1
       return CreatedAtAction(nameof(GetPark), new {id = park.ParkId }, park);
     }
 
-    // PUT: api/Parks/5
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     {
@@ -95,7 +92,6 @@ namespace ParkApi.Controllers.V1
       return _db.Parks.Any(e => e.ParkId == id);
     }
 
-    // DELETE : api/Parks/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePark(int id)
     {
